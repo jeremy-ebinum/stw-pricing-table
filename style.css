@@ -31,7 +31,26 @@ body {
   --primary-text-color: #1b1b1b;
   --secondary-text-color: #777777;
   --start-text-color: #fff;
+  --color-toggler-bg-color: #fff;
+  --color-toggler-text-color: #000;
+  --color-toggler-hover-bg-color: #000;
+  --color-toggler-hover-text-color: #fff;
   text-align: center;
+}
+
+button {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  text-decoration: none;
+  background: #0069ed;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease,
+    color 500ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .page-wrapper {
@@ -40,6 +59,38 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--wrapper-bg-color);
+}
+
+/* Color Toggle Container */
+.page-wrapper .color-toggle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0.75rem;
+}
+
+.color-toggle .color-toggler {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 3px;
+  background-color: var(--color-toggler-bg-color);
+  color: var(--color-toggler-text-color);
+  cursor: pointer;
+  font-family: "GothamPro";
+  font-weight: 500;
+  font-size: 13px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 300ms ease-in, transform 150ms ease, color 500ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.color-toggle .color-toggler:hover {
+  background-color: var(--color-toggler-hover-bg-color);
+  color: var(--color-toggler-hover-text-color);
 }
 
 .page-wrapper .pricing-container {
