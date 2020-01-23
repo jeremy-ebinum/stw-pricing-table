@@ -1,7 +1,35 @@
+:root {
+  --primary-bg-color: #1b1b1b;
+  --primary-text-color: #1b1b1b;
+  --secondary-text-color: #777777;
+}
+
+@font-face {
+  font-family: "GothamPro";
+  src: url("./GothamPro-Light.woff") format("woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "GothamPro";
+  src: url("./GothamPro-Medium.woff") format("woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Helvetica Neue DeskInterface";
+  src: url("./HelveticaNeueDeskInterface-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+body {
+  text-align: center;
 }
 
 .page-wrapper {
@@ -13,7 +41,106 @@
 }
 
 .page-wrapper .pricing-container {
-  width: 1440px;
-  height: 540px;
+  /* width: 1440px; */
+  /* height: 540px; */
+  display: flex;
+  justify-content: center;
   background-color: #fff;
+}
+
+.pricing-container .pricing-plans {
+  display: flex;
+  justify-content: center;
+}
+
+.pricing-plans .pricing-plan {
+  width: 220px;
+  height: 267px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* justify-content: flex-end; */
+  margin: 63px 20px;
+}
+
+.pricing-plan .plan-title {
+  color: var(--primary-text-color);
+  font-family: "GothamPro";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 20px;
+  margin-bottom: 15px;
+}
+
+.pricing-plan .plan-primary-fees {
+  display: flex;
+  font-family: "GothamPro";
+  color: var(--primary-text-color);
+  font-weight: 500;
+  margin-bottom: 42px;
+  justify-content: center;
+  align-items: baseline;
+}
+
+div#startup.pricing-plan .plan-primary-fees {
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.plan-primary-fees .plan-price {
+  font-size: 27px;
+  line-height: 27px;
+  margin-right: 0.5rem;
+}
+
+.plan-primary-fees .plan-duration {
+  font-size: 12px;
+}
+
+div#startup.pricing-plan .plan-primary-fees .plan-duration {
+  margin-top: 2px;
+  font-size: 10px;
+}
+
+.pricing-plan .plan-yearly-fees {
+  font-family: "GothamPro";
+  font-size: 10px;
+  line-height: 15px;
+  color: var(--secondary-text-color);
+}
+.plan-yearly-fees .plan-yearly-fee {
+  font-weight: 300;
+}
+
+.plan-yearly-fees .plan-yearly-fee-placeholder {
+  font-weight: 500;
+}
+
+.pricing-plan .plan-events {
+  margin-top: 25px;
+  font-family: "GothamPro";
+  font-size: 10px;
+  line-height: 15px;
+  color: var(--secondary-text-color);
+}
+
+.plan-events .event-number {
+  font-weight: 300;
+}
+
+.plan-events .event-placeholder {
+  font-weight: 500;
+}
+
+.pricing-plan .start-btn {
+  width: 180px;
+  height: 50px;
+  background-color: var(--primary-bg-color);
+  color: #fff;
+  font-family: "Helvetica-Neue DeskInterface", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 15px;
+  margin-top: auto;
 }
