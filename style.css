@@ -1,3 +1,18 @@
+:root {
+  --wrapper-bg-color: #333;
+  --container-bg-color: #fff;
+  --primary-bg-color: #1b1b1b;
+  --most-picked-bg-color: #002fe9;
+  --most-picked-text-color: #fff;
+  --primary-text-color: #1b1b1b;
+  --secondary-text-color: #777777;
+  --start-text-color: #fff;
+  --color-toggler-bg-color: #fff;
+  --color-toggler-text-color: #000;
+  --color-toggler-hover-bg-color: #000;
+  --color-toggler-hover-text-color: #fff;
+}
+
 @font-face {
   font-family: "GothamPro";
   src: url("./GothamPro-Light.woff") format("woff");
@@ -23,34 +38,7 @@
 }
 
 body {
-  --wrapper-bg-color: #333;
-  --container-bg-color: #fff;
-  --primary-bg-color: #1b1b1b;
-  --most-picked-bg-color: #002fe9;
-  --most-picked-text-color: #fff;
-  --primary-text-color: #1b1b1b;
-  --secondary-text-color: #777777;
-  --start-text-color: #fff;
-  --color-toggler-bg-color: #fff;
-  --color-toggler-text-color: #000;
-  --color-toggler-hover-bg-color: #000;
-  --color-toggler-hover-text-color: #fff;
   text-align: center;
-}
-
-button {
-  display: inline-block;
-  border: none;
-  margin: 0;
-  text-decoration: none;
-  background: #0069ed;
-  color: #ffffff;
-  cursor: pointer;
-  text-align: center;
-  transition: background 250ms ease-in-out, transform 150ms ease,
-    color 500ms ease;
-  -webkit-appearance: none;
-  -moz-appearance: none;
 }
 
 .page-wrapper {
@@ -71,9 +59,10 @@ button {
 
 .color-toggle .color-toggler {
   display: inline-block;
+  width: 75px;
   border: none;
   margin: 0;
-  padding: 0.25rem 0.75rem;
+  padding: 0.3rem 0.75rem;
   border-radius: 3px;
   background-color: var(--color-toggler-bg-color);
   color: var(--color-toggler-text-color);
@@ -94,7 +83,6 @@ button {
 }
 
 .page-wrapper .pricing-container {
-  /* width: 1440px; */
   height: 540px;
   display: flex;
   justify-content: center;
@@ -113,7 +101,6 @@ button {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* justify-content: flex-end; */
   margin: 63px 20px;
   z-index: 1;
 }
