@@ -1,9 +1,3 @@
-:root {
-  --primary-bg-color: #1b1b1b;
-  --primary-text-color: #1b1b1b;
-  --secondary-text-color: #777777;
-}
-
 @font-face {
   font-family: "GothamPro";
   src: url("./GothamPro-Light.woff") format("woff");
@@ -29,6 +23,14 @@
 }
 
 body {
+  --wrapper-bg-color: #333;
+  --container-bg-color: #fff;
+  --primary-bg-color: #1b1b1b;
+  --most-picked-bg-color: #002fe9;
+  --most-picked-text-color: #fff;
+  --primary-text-color: #1b1b1b;
+  --secondary-text-color: #777777;
+  --start-text-color: #fff;
   text-align: center;
 }
 
@@ -37,15 +39,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #333;
+  background-color: var(--wrapper-bg-color);
 }
 
 .page-wrapper .pricing-container {
   /* width: 1440px; */
-  /* height: 540px; */
+  height: 540px;
   display: flex;
   justify-content: center;
-  background-color: #fff;
+  background-color: var(--container-bg-color);
 }
 
 .pricing-container .pricing-plans {
@@ -62,6 +64,12 @@ body {
   text-align: center;
   /* justify-content: flex-end; */
   margin: 63px 20px;
+  z-index: 1;
+}
+
+/* Setup for Most Picked Overlay */
+div#business.pricing-plan {
+  position: relative;
 }
 
 .pricing-plan .plan-title {
@@ -137,10 +145,41 @@ div#startup.pricing-plan .plan-primary-fees .plan-duration {
   width: 180px;
   height: 50px;
   background-color: var(--primary-bg-color);
-  color: #fff;
+  color: var(--start-text-color);
   font-family: "Helvetica-Neue DeskInterface", Helvetica, sans-serif;
   font-weight: 400;
   font-size: 11px;
   line-height: 15px;
   margin-top: auto;
+  z-index: 1;
+}
+
+/* Most Picked Overlay */
+.pricing-plan .most-picked {
+  position: absolute;
+  top: -23px;
+  left: 0;
+  width: 220px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 2px solid var(--most-picked-bg-color);
+}
+
+.most-picked .most-picked-label {
+  width: 218px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--most-picked-bg-color);
+}
+
+.most-picked .most-picked-label p {
+  font-family: "Helvetica Neue DeskInterface";
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: var(--most-picked-text-color);
 }
