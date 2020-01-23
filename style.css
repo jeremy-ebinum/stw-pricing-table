@@ -7,6 +7,7 @@
   --primary-text-color: #1b1b1b;
   --secondary-text-color: #777777;
   --start-text-color: #fff;
+  --ripple-color: #ccc;
   --color-toggler-bg-color: #fff;
   --color-toggler-text-color: #000;
   --color-toggler-hover-bg-color: #000;
@@ -41,6 +42,17 @@ body {
   text-align: center;
 }
 
+button {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 .page-wrapper {
   height: 100vh;
   display: flex;
@@ -55,6 +67,7 @@ body {
   top: 0;
   left: 0;
   margin: 0.75rem;
+  overflow: hidden;
 }
 
 .color-toggle .color-toggler {
@@ -72,6 +85,7 @@ body {
   font-size: 13px;
   text-align: center;
   text-decoration: none;
+  overflow: hidden;
   transition: background 300ms ease-in, transform 150ms ease, color 500ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -87,6 +101,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: var(--container-bg-color);
+  transition: all 0.4s ease-in;
 }
 
 .pricing-container .pricing-plans {
@@ -95,6 +110,8 @@ body {
 }
 
 .pricing-plans .pricing-plan {
+  position: relative;
+  top: 0;
   width: 220px;
   height: 267px;
   display: flex;
@@ -102,7 +119,12 @@ body {
   align-items: center;
   text-align: center;
   margin: 63px 20px;
+  transition: all 0.3s ease;
   z-index: 1;
+}
+
+.pricing-plans .pricing-plan:hover {
+  top: 10px;
 }
 
 /* Setup for Most Picked Overlay */
@@ -180,6 +202,7 @@ div#startup.pricing-plan .plan-primary-fees .plan-duration {
 }
 
 .pricing-plan .start-btn {
+  position: relative;
   width: 180px;
   height: 50px;
   background-color: var(--primary-bg-color);
@@ -189,7 +212,59 @@ div#startup.pricing-plan .plan-primary-fees .plan-duration {
   font-size: 11px;
   line-height: 15px;
   margin-top: auto;
+  overflow: hidden;
   z-index: 1;
+  transition: all 0.5s ease-in;
+}
+
+/* Setup Click Ripple Animation */
+.ripple::after {
+  content: "";
+  background: var(--ripple-color);
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.ripple:active::after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+/* Setup >> Animation */
+.start-btn span {
+  position: relative;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+/* >> to be animated in */
+.start-btn span::after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: -1px;
+  right: -20px;
+  font-size: 13px;
+  transition: 0.4s;
+}
+
+/* Create room for the >> */
+.start-btn:hover span {
+  padding-right: 15px;
+}
+
+/* Push >> in */
+.start-btn:hover span:after {
+  opacity: 1;
+  right: 2px;
 }
 
 /* Most Picked Overlay */
@@ -214,7 +289,7 @@ div#startup.pricing-plan .plan-primary-fees .plan-duration {
   background-color: var(--most-picked-bg-color);
 }
 
-.most-picked .most-picked-label p {
+.most-picked .most-picked-label span {
   font-family: "Helvetica Neue DeskInterface";
   font-weight: 400;
   font-size: 11px;
