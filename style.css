@@ -40,6 +40,7 @@
 
 body {
   text-align: center;
+  background-color: var(--wrapper-bg-color);
 }
 
 button {
@@ -54,18 +55,16 @@ button {
 }
 
 .page-wrapper {
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background-color: var(--wrapper-bg-color);
 }
 
 /* Color Toggle Container */
 .page-wrapper .color-toggle {
-  position: fixed;
-  top: 0;
-  left: 0;
   margin: 0.75rem;
   overflow: hidden;
 }
@@ -97,8 +96,8 @@ button {
 }
 
 .page-wrapper .pricing-container {
+  padding: 1rem;
   width: 100%;
-  height: 540px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -108,6 +107,7 @@ button {
 
 .pricing-container .pricing-plans {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -120,18 +120,13 @@ button {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 63px 20px;
+  margin: 63px 20px 0px 20px;
   transition: all 0.3s ease;
   z-index: 1;
 }
 
 .pricing-plans .pricing-plan:hover {
   top: 10px;
-}
-
-/* Setup for Most Picked Overlay */
-div#business.pricing-plan {
-  position: relative;
 }
 
 .pricing-plan .plan-title {
@@ -269,8 +264,14 @@ div#startup.pricing-plan .plan-primary-fees .plan-duration {
   right: 2px;
 }
 
+/* Add extra margin to pricing plan with most picked overlay */
+.pricing-plan.most-picked {
+  /* mp-overlay (height - top) - pricing plan height */
+  margin-bottom: 70px;
+}
+
 /* Most Picked Overlay */
-.pricing-plan .most-picked {
+.pricing-plan .most-picked-overlay {
   position: absolute;
   top: -23px;
   left: 0;
@@ -282,7 +283,7 @@ div#startup.pricing-plan .plan-primary-fees .plan-duration {
   border: 2px solid var(--most-picked-bg-color);
 }
 
-.most-picked .most-picked-label {
+.most-picked-overlay .most-picked-label {
   width: 218px;
   height: 40px;
   display: flex;
@@ -291,7 +292,7 @@ div#startup.pricing-plan .plan-primary-fees .plan-duration {
   background-color: var(--most-picked-bg-color);
 }
 
-.most-picked .most-picked-label span {
+.most-picked-overlay .most-picked-label span {
   font-family: "Helvetica Neue DeskInterface";
   font-weight: 400;
   font-size: 11px;
@@ -303,10 +304,17 @@ div#startup.pricing-plan .plan-primary-fees .plan-duration {
 .pricing-container .attribution {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: center;
   font-family: "GothamPro";
   font-size: 11px;
+  line-height: 15px;
   color: var(--secondary-text-color);
+  margin: 2rem 0;
+}
+
+.attribution > * {
+  margin: 0.25rem 2rem;
 }
 
 .attribution .coder {
