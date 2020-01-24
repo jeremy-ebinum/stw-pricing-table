@@ -1,4 +1,4 @@
-# Part of the Sketch to Website Series
+# Sketch to Website Series
 
 Written with **HTML**, **CSS** and **JavaScript** by _Jeremy Ebinum_.
 
